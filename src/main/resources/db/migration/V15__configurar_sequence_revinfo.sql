@@ -1,0 +1,3 @@
+CREATE SEQUENCE IF NOT EXISTS revinfo_seq START WITH 1 INCREMENT BY 1;
+
+ALTER TABLE revinfo ALTER COLUMN rev SET DEFAULT nextval('revinfo_seq');

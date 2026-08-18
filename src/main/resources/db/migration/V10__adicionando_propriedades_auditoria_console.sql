@@ -1,0 +1,4 @@
+ALTER TABLE consoles ADD COLUMN data_criacao TIMESTAMP WITHOUT TIME ZONE;
+ALTER TABLE consoles ADD COLUMN data_ultima_modificacao TIMESTAMP WITHOUT TIME ZONE;
+ALTER TABLE consoles ADD COLUMN criado_por VARCHAR(255);
+ALTER TABLE consoles ADD COLUMN modificado_por VARCHAR(255);

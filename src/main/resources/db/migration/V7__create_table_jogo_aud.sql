@@ -1,0 +1,23 @@
+CREATE TABLE public.jogo_aud (
+    id bigint NOT NULL,
+    rev bigint NOT NULL,
+    revtype smallint,
+    nome character varying(255),
+    desenvolvedora character varying(255),
+    publicadora character varying(255),
+    console_id bigint,
+    ativo boolean,
+    slug character varying(255),
+    imagem_url text,
+    url_video text,
+    jogogenero character varying(255),
+    nota_critica integer,
+    modo_jogo text,
+    diretor_criador character varying(255),
+    jogo_midia_original character varying(255),
+    tamanho_arquivo character varying(255),
+    retrocompatibilidade boolean,
+    jogo_status character varying(255),
+    CONSTRAINT jogo_aud_pkey PRIMARY KEY (id, rev),
+    CONSTRAINT fk_jogo_aud_revinfo FOREIGN KEY (rev) REFERENCES public.revinfo(rev)
+);

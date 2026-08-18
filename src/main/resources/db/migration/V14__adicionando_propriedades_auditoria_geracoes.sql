@@ -1,0 +1,4 @@
+ALTER TABLE geracoes ADD COLUMN criado_por VARCHAR(255);
+ALTER TABLE geracoes ADD COLUMN data_criacao TIMESTAMP WITHOUT TIME ZONE;
+ALTER TABLE geracoes ADD COLUMN modificado_por VARCHAR(255);
+ALTER TABLE geracoes ADD COLUMN data_ultima_modificacao TIMESTAMP WITHOUT TIME ZONE;
