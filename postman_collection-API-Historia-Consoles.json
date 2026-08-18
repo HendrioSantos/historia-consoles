@@ -1,0 +1,811 @@
+{
+  "info": {
+    "_postman_id": "3c6feef4-e747-432c-9226-4ea8b126f9b8",
+    "name": "HistoriaConsoles API Tests",
+    "description": "Coleção de testes para autenticação e roles da API HistoriaConsoles (Spring Boot + JWT)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31399739"
+  },
+  "item": [
+    {
+      "name": "registrar usuarios",
+      "item": [
+        {
+          "name": "Registrar CARGO_GERACAO (ADMIN)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"user_geracao\",\n    \"senha\": \"12345\",\n    \"role\": \"CARGO_GERACAO\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/autenticacao/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "autenticacao",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar CARGO_CONSOLE (ADMIN)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"user_console\",\n    \"senha\": \"12345\",\n    \"role\": \"CARGO_CONSOLE\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/autenticacao/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "autenticacao",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar CARGO_JOGO (ADMIN)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"user_jogo\",\n    \"senha\": \"12345\",\n    \"role\": \"CARGO_JOGO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/autenticacao/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "autenticacao",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar LEITOR (CARGO_GERACAO)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"user_invalido\",\n    \"senha\": \"12345\",\n    \"role\": \"LEITOR\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/autenticacao/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "autenticacao",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar ADMIN",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"login\": \"adm\",\r\n  \"senha\": \"adm\",\r\n  \"role\": \"ADMIN\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/autenticacao/registro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "autenticacao",
+                "registro"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cadastrar core",
+      "item": [
+        {
+          "name": "Criar Gerações",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBcGkgZGUgaGlzdMOzcmlhIGRvcyBjb25zb2xlcyIsInN1YiI6ImciLCJleHAiOjE3ODcwNTY0MTB9.sCgJQZuFVbq1QvcWEI6l_zINAHUxwX169gamDv2h1uc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nome\": \"Primeira Geração\",\r\n  \"numeroGeracao\": 1,\r\n  \"fatoHistorico\": \"O nascimento dos videogames comerciais, marcado pelo lançamento do Magnavox Odyssey e o sucesso de Pong nos arcades.\",\r\n  \"cronologia\": \"PIONEIROS_OU_VINTAGE\", \r\n  \"geracaoEmpresaDominante\": \"MAGNAVOX_ATARI\",\r\n  \"periodo\": {\r\n    \"inicio\": \"1972-05-24\",\r\n    \"fim\": \"1977-01-01\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/geracao",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "geracao"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cadastrar Jogo",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBcGkgZGUgaGlzdMOzcmlhIGRvcyBjb25zb2xlcyIsInN1YiI6ImFkbSIsImV4cCI6MTc4NzA2ODE2MX0.PV4s-eeqUUW28elDyJ6HAbHelR_GMl1PnotjB6j0beY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Table Tennis\",\r\n    \"desenvolvedora\": \"Magnavox\",\r\n    \"publicadora\": \"Magnavox\",\r\n    \"tamanhoArquivo\": \"Não se aplica (Sem microchip)\",\r\n    \"jogoModo\": \"SOLO\",\r\n    \"imagemUrl\": \"https://wikimedia.org\",\r\n    \"urlVideo\": \"https://youtube.com\",\r\n    \"diretorCriador\": \"Ralph Baer\",\r\n    \"consoleId\": 1,\r\n    \"jogoGenero\": \"PONG_OU_TELECORES\",\r\n    \"jogoStatus\": \"LANCADO\",\r\n    \"midiaOriginal\": \"EMBUTIDO_MEMORIA\",\r\n    \"notaCritica\": 80\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/jogo",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jogo"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cadastrar Console",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nome\": \"Magnavox Odyssey\",\r\n  \"fabricante\": \"Magnavox\",\r\n  \"publicadora\": \"Magnavox\",\r\n  \"imagemUrl\": \"https://wikimedia.org\",\r\n  \"unidadesVendidas\": \"350 mil unidades\",\r\n  \"descontinuado\": true,\r\n  \"geracaoId\": 3,\r\n  \"hardware\": {\r\n    \"cpu\": \"Nenhum (Circuito impresso analógico com diodos e transistores)\",\r\n    \"gpu\": \"Nenhum\",\r\n    \"ram\": \"Nenhum\",\r\n    \"armazenamento\": \"Nenhum\",\r\n    \"midia\": \"Cartões de circuito (Mídias impressas sem memória)\",\r\n    \"resolucao\": \"Preto e branco (Exigia películas plásticas coladas na TV)\"\r\n  },\r\n  \"periodo\": {\r\n    \"inicio\": \"1972-05-24\",\r\n    \"fim\": \"1975-01-01\"\r\n  },\r\n  \"jogosIds\": []\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/console",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "console"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "atualizar core",
+      "item": [
+        {
+          "name": "AtualizarGeração",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nome\": \"Segunda Geração\",\r\n  \"numeroGeracao\": 2,\r\n  \"cronologia\": \"ANTIGOS_OU_OLD_SCHOOL\", \r\n  \"atual\": false,\r\n  \"ativo\": true,\r\n  \"fatoHistorico\": \"A era dos cartuchos e dos microprocessadores. Popularizou os joysticks e viveu o famoso 'Crash dos Videogames' em 1983.\",\r\n  \"geracaoEmpresaDominante\": \"ATARI_DOMINANTE\",\r\n  \"periodo\": {\r\n    \"inicio\": \"1983-07-16\",\r\n    \"fim\": \"1995-08-14\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/geracao/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "geracao",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AtualizarJogos",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/jogo/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jogo",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AtualizarConsoles",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Magnavox Odyssey (Modelo 1TL200)\",\r\n    \"fabricante\": \"Magnavox / Sanders Associates\",\r\n    \"publicadora\": \"Magnavox\",\r\n    \"unidadesVendidas\": \"350 mil unidades\",\r\n    \"imagemUrl\": \"https://wikimedia.org\",\r\n    \"hardware\": {\r\n        \"cpu\": \"Circuito analógico puro\",\r\n        \"memoria\": \"Nenhuma RAM\",\r\n        \"graficos\": \"Preto e branco\"\r\n    },\r\n    \"periodo\": {\r\n        \"inicio\": \"1972-09-01\",\r\n        \"fim\": \"1975-10-01\"\r\n    },\r\n    \"descontinuado\": true,\r\n    \"retrocompatibilidade\": false,\r\n    \"ativo\": true,\r\n    \"jogosId\": [1],\r\n    \"geracaoId\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/console/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "console",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "pegar core",
+      "item": [
+        {
+          "name": "slug",
+          "item": [
+            {
+              "name": "PegarConsoleSlug",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{jwt_token}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8080/console/slug/magnavox-odyssey",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "console",
+                    "slug",
+                    "magnavox-odyssey"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PegarGeraçãoSlug",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/geracao/slug/primeira-geracao",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "geracao",
+                    "slug",
+                    "primeira-geracao"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PegarJogoSlug",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/console/slug/table-tennis",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "console",
+                    "slug",
+                    "table-tennis"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "item": [
+            {
+              "name": "PegarGeraçãoId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/geracao/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "geracao",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PegarConsoleId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/console/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "console",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PegarJogoId",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/jogo/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "jogo",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PegarGerações",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/geracao?page=0&size=10&sort=id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "geracao"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PegarConsoles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/console?page=0&size=10&sort=id&geracaoId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "console"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id"
+                },
+                {
+                  "key": "geracaoId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PegarJogos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "consoleId",
+                "value": "1",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/jogo?page=0&size=10&sort=id&geracaoId=1&consoleId=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jogo"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "id"
+                },
+                {
+                  "key": "geracaoId",
+                  "value": "1"
+                },
+                {
+                  "key": "consoleId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "deletar core",
+      "item": [
+        {
+          "name": "DeletarConsole",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/console/1?logico=true",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "console",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "logico",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeletarGeração",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/geracao/1?logico=true",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "geracao",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "logico",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeletarJogo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/jogo/1?logico=true",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "jogo",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "logico",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Salvar Token JWT Automaticamente\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "    var jsonData = pm.response.json();\r",
+              "    \r",
+              "    pm.collectionVariables.set(\"jwt_token\", jsonData.token);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"login\": \"adm\",\n    \"senha\": \"adm\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/autenticacao/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "autenticacao",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBcGkgZGUgaGlzdMOzcmlhIGRvcyBjb25zb2xlcyIsInN1YiI6ImFkbSIsImV4cCI6MTc4NzA2ODE2MX0.PV4s-eeqUUW28elDyJ6HAbHelR_GMl1PnotjB6j0beY",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": ""
+    }
+  ]
+}
